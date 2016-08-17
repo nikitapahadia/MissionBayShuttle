@@ -11,11 +11,11 @@ import RealmSwift
 
 class Route: Object {
 	
-	dynamic var id = ""
+	dynamic var routeID = ""
 	dynamic var name = ""
-	dynamic var color = ""
-	dynamic var textColor = ""
-	dynamic var type = ""
+	dynamic var color: String?
+	dynamic var textColor: String?
+	dynamic var type: String?
 	// Specify properties to ignore (Realm won't persist these)
 	
 	//  override static func ignoredProperties() -> [String] {
