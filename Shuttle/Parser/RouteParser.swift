@@ -17,7 +17,7 @@ class RouteParser {
 		self.data = data
 	}
 	
-	func parseMe() {
+	func parseMe(completion: ()->Void) {
 		do {
 		guard let jsonObj = try NSJSONSerialization.JSONObjectWithData(self.data!, options: .AllowFragments) as? NSDictionary else {
 			return
@@ -52,6 +52,7 @@ class RouteParser {
 				}
 				
 			}
+			completion()
 			
 		} catch {
 			

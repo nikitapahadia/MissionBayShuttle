@@ -19,7 +19,7 @@ class NetworkManager {
 	
 	let queue = NSOperationQueue()
 	
-	func getRoutes() {
+	func getRoutes(completion: ()->Void) {
 		let url = baseURL + "routes"
 		
 		queue.addOperationWithBlock {
@@ -35,7 +35,8 @@ class NetworkManager {
 					print(datastring)
 					
 					let parser = RouteParser(data: data!)
-					parser.parseMe()
+					parser.parseMe(completion)
+					
 				}
 				
 				dataTask.resume()

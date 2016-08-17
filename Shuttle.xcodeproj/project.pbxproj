@@ -24,6 +24,7 @@
 		4F3524731D639873005053CC /* Extent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3524721D639873005053CC /* Extent.swift */; };
 		4F79B3C31D41733E00DBA34F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F79B3C21D41733E00DBA34F /* Route.swift */; };
 		4F98F30D1D650CC7001BC894 /* RouteParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F98F30C1D650CC7001BC894 /* RouteParser.swift */; };
+		4F98F3101D652077001BC894 /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F98F30F1D652077001BC894 /* RouteTableViewCell.swift */; };
 		E3E5A7C118FDE7FD1A0877E0 /* Pods_ShuttleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB019DCE730A4146DAAECE2C /* Pods_ShuttleTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		4F3524721D639873005053CC /* Extent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extent.swift; sourceTree = "<group>"; };
 		4F79B3C21D41733E00DBA34F /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Route.swift; path = Model/Route.swift; sourceTree = "<group>"; };
 		4F98F30C1D650CC7001BC894 /* RouteParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteParser.swift; sourceTree = "<group>"; };
+		4F98F30F1D652077001BC894 /* RouteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteTableViewCell.swift; sourceTree = "<group>"; };
 		6C724C25177FE57ECE112576 /* Pods-ShuttleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShuttleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShuttleTests/Pods-ShuttleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8DDE85BF152FD45AA490187E /* Pods-Shuttle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shuttle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shuttle/Pods-Shuttle.debug.xcconfig"; sourceTree = "<group>"; };
 		9628FE72B10A8A7D6160C11B /* Pods_ShuttleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShuttleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +150,7 @@
 		4F2ED4961D4025F40026D620 /* Shuttle */ = {
 			isa = PBXGroup;
 			children = (
+				4F98F30E1D65205B001BC894 /* Views */,
 				4F98F30B1D650CB9001BC894 /* Parser */,
 				4F042DD81D65033F009F1B96 /* Network */,
 				4F79B3C11D4171C800DBA34F /* Model */,
@@ -198,6 +201,14 @@
 				4F98F30C1D650CC7001BC894 /* RouteParser.swift */,
 			);
 			path = Parser;
+			sourceTree = "<group>";
+		};
+		4F98F30E1D65205B001BC894 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F98F30F1D652077001BC894 /* RouteTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8DA94800CB7E78387D4B4155 /* Pods */ = {
@@ -484,6 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F98F3101D652077001BC894 /* RouteTableViewCell.swift in Sources */,
 				4F98F30D1D650CC7001BC894 /* RouteParser.swift in Sources */,
 				4F042DDA1D65037B009F1B96 /* NetworkManager.swift in Sources */,
 				4F3524711D639865005053CC /* Direction.swift in Sources */,
