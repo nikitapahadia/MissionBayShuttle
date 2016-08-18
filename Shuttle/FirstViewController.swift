@@ -26,15 +26,14 @@ extension UIColor {
 	convenience init(hexString: String) {
 		let nextString = hexString.stringByReplacingOccurrencesOfString("#", withString: "")
 		
-		let netHex = Int( UInt8(strtoul(nextString, nil, 16)))
+		let netHex = Int(nextString, radix: 16)//Int( UInt8(strtoul(nextString, nil, 16)))
 		
-		self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+		self.init(red:(netHex! >> 16) & 0xff, green:(netHex! >> 8) & 0xff, blue:netHex! & 0xff)
 	}
 }
 
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-	
 	
 	var routeList: Results<Route>?
 	
@@ -42,10 +41,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 	@IBOutlet weak var tableView: UITableView!
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		
+		print(Realm.Configuration.defaultConfiguration.fileURL!)
 		
 		let network = NetworkManager.sharedInstance
-		dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) { 
+		dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
 			network.getRoutes() { [weak self] in
 				self?.updateUI()
 			}
@@ -54,11 +54,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 	
 	func updateUI() {
 		
-		dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) { [unowned self] in
-			let uiRealm = try! Realm()
-			self.routeList = uiRealm.objects(Route)
-		}
-		sleep(5)
+		let uiRealm = try! Realm()
+		self.routeList = uiRealm.objects(Route)
 		tableView.reloadData()
 	}
 	
@@ -71,7 +68,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if routeList == nil {
-				return 0
+			return 0
 		}
 		return routeList!.count
 	}
@@ -83,8 +80,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 		
 		cell?.mainLabel.text = route.routeID
 		cell?.detailLabel.text = route.name
-		cell?.detailLabel.textColor = UIColor(hexString: route.textColor!)
-//		cell?.backgroundColor = route.color
+		if let textColor = route.textColor {
+			cell?.detailLabel.textColor = UIColor(hexString: textColor)
+		}
+		//		cell?.backgroundColor = route.color
 		
 		return cell!
 	}

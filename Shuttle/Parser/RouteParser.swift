@@ -48,6 +48,7 @@ class RouteParser {
 					
 					try realmObj.write {
 							realmObj.add(r)
+						try! realmObj.commitWrite()
 						}
 				}
 				
